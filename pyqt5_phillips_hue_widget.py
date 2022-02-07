@@ -149,14 +149,16 @@ class PhillipsHuePanel:
             on_click=lambda: functions.combineFunctions(
                 self.light.set_state(data={"on": True}),
                 self.set_current_state()
-            )
+            ),
+            style_identifier="on_button"
         )
         self.objects.append(self.on_button)
 
         self.off_button = widgetButton.Button(
             widget=self.widget,
             text="off",
-            on_click=lambda: self.light.set_state(data={"on": False})
+            on_click=lambda: self.light.set_state(data={"on": False}),
+            style_identifier="off_button"
         )
         self.objects.append(self.off_button)
 

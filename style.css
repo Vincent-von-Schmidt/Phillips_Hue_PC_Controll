@@ -16,14 +16,19 @@ QLabel#headline {
 
 QLabel {
     color: gray;
+    font-size: 50;
 }
 
 QPushButton:hover {
     background-color: #525252;
 }
 
-QPushButton#on.button {
-    background-color: white;
+QPushButton#on_button:hover {
+    background-color: darkgreen;
+}
+
+QPushButton#off_button:hover {
+    background-color: darkred;
 }
 
 QSlider::groove:horizontal {
@@ -39,7 +44,7 @@ QSlider::handle:horizontal {
     border: 2px solid #363636;
     width: 18px;
     margin: 10px 5;
-    border-radius: 6px;
+    border-radius: 2px;
 }
 
 QSlider::handle:horizontal:hover {
