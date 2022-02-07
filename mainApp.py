@@ -4,7 +4,6 @@ from widgets import widgetButton, widgetLabel, widgetSlider, widgetTextEdit, wid
 import format
 import functions
 import pyqt5_phillips_hue_widget
-import second_window
 
 
 class MainWidget(QWidget):
@@ -57,13 +56,6 @@ class MainWidget(QWidget):
             name="PC passive"
         )
         self.panel_three.set_current_state()
-
-        self.switch_button = widgetButton.Button(
-            widget=self,
-            text="switch window",
-            position=[self.CENTER[0] - 450, self.CENTER[1] - 250],
-            on_click=lambda: second_window.show()
-        )
 
         # activate the ui
         self.init_ui()
