@@ -1,4 +1,4 @@
-QWidget{
+QWidget {
     background-color: #363636;
 }
 
@@ -8,15 +8,16 @@ QPushButton {
     background-color: #424242;
 }
 
-QLabel#headline {
+QFrame#headline {
     font-size: 15;
     font-weight: bold;
     color: black;
 }
 
-QLabel {
+QFrame {
+    font-weight: bold;
+    font-size: 13;
     color: gray;
-    font-size: 50;
 }
 
 QPushButton:hover {
@@ -41,12 +42,16 @@ QSlider::groove:horizontal {
 
 QSlider::handle:horizontal {
     background: darkcyan;
-    border: 2px solid #363636;
+    border: 1px solid #363636;
     width: 18px;
-    margin: 10px 5;
-    border-radius: 2px;
+    margin: 0px;
+    border-radius: 3px;
 }
 
-QSlider::handle:horizontal:hover {
-    color: cyan;
+QSlider::add-page:horizontal {
+    color: black;
+}
+
+QSlider::sub-page:horizontal {
+    color: white;
 }
