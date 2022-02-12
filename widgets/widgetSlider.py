@@ -50,7 +50,7 @@ class Slider:
             self.connect(on_change)
 
         if style_identifier is not None:
-            self.slider.setObjectName(style_identifier)
+            self.set_style_identifier(style_identifier)
 
     def get_width(self) -> int:
         return self.slider.width()
@@ -58,10 +58,10 @@ class Slider:
     def get_height(self) -> int:
         return self.slider.height()
 
-    def get_value(self):
+    def get_value(self) -> int:
         return self.slider.value()
 
-    def connect(self, function):
+    def connect(self, function) -> None:
         self.slider.valueChanged.connect(function)
 
     def set_position(self, position: list) -> None:
@@ -74,3 +74,5 @@ class Slider:
     def set_tool_tip(self, tool_tip):
         self.slider.setToolTip(tool_tip)
 
+    def set_style_identifier(self, style_identifier) -> None:
+        self.slider.setObjectName(style_identifier)

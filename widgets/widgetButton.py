@@ -31,7 +31,7 @@ class Button:
             self.connect(on_click)
 
         if style_identifier is not None:
-            self.button.setObjectName(style_identifier)
+            self.set_style_identifier(style_identifier)
 
     def set_tool_tip(self, text: str) -> None:
         self.button.setToolTip(text)
@@ -39,6 +39,9 @@ class Button:
     def set_position(self, position: list) -> None:
         position = [position[0] - self.get_width() // 2, position[1]]
         self.button.move(position[0], position[1])
+
+    def set_style_identifier(self, style_identifier) -> None:
+        self.button.setObjectName(style_identifier)
 
     def get_width(self) -> int:
         return self.button.width()

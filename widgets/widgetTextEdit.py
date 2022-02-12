@@ -12,13 +12,15 @@ class LineEdit:
             alignment: str = 'left',
             on_change=None,
             text: str = None,
-            tool_tip: str = None
+            tool_tip: str = None,
+            placeholder_text: str = None
     ):
         self.widget = widget
         self.tool_tip = tool_tip
         self.text = text
         self.length = length
         self.text_length = text_length
+        self.placeholder_text = placeholder_text
 
         if alignment == 'left':
             self.alignment = Qt.AlignLeft
@@ -44,6 +46,11 @@ class LineEdit:
 
         # set length
         self.lineEdit.setFixedWidth(self.length)
+
+        self.lineEdit.setPlaceholderText("Test")
+
+        if self.placeholder_text is not None:
+            self.lineEdit.setPlaceholderText(self.placeholder_text)
 
         # set max text length
         if not self.text_length == 0:

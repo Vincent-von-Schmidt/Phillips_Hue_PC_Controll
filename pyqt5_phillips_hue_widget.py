@@ -146,10 +146,6 @@ class PhillipsHuePanel:
         self.on_button = widgetButton.Button(
             widget=self.widget,
             text="on",
-            on_click=lambda: functions.combineFunctions(
-                self.light.set_state(data={"on": True}),
-                self.set_current_state()
-            ),
             style_identifier="on_button"
         )
         self.objects.append(self.on_button)
@@ -157,10 +153,22 @@ class PhillipsHuePanel:
         self.off_button = widgetButton.Button(
             widget=self.widget,
             text="off",
-            on_click=lambda: self.light.set_state(data={"on": False}),
             style_identifier="off_button"
         )
         self.objects.append(self.off_button)
+
+        self.on_button.connect(lambda: functions.combine_functions(
+            self.light.set_state(data={"on": True}),
+            self.set_current_state(),
+            self.on_button.set_style_identifier("on_button_activated"),
+            self.off_button.set_style_identifier("off_button")
+        ))
+
+        self.off_button.connect(lambda: functions.combine_functions(
+            self.light.set_state(data={"on": False}),
+            self.on_button.set_style_identifier("on_button"),
+            self.off_button.set_style_identifier("off_button_activated")
+        ))
 
         # set position
         self.set_position(position)
@@ -204,7 +212,6 @@ class PhillipsHuePanel:
         request = self.light.get_state()
         for content in self.objects:
             if isinstance(content, widgetSlider.Slider):
-
                 if request["on"]:
                     if request["colormode"] == "ct":
                         if not content.state_identifier == "hue":
@@ -221,3 +228,4 @@ class PhillipsHuePanel:
                         content.set_slider_to_number(
                             int(request[content.state_identifier])
                         )
+

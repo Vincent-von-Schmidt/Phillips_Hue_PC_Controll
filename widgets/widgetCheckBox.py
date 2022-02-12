@@ -2,11 +2,17 @@ from PyQt5.QtWidgets import QCheckBox
 
 
 class CheckBox:
-    def __init__(self, widget, position, text, toolTip=None):
+    def __init__(
+            self,
+            widget: object,
+            position: list,
+            text: str,
+            tool_tip: str = None
+    ):
         self.widget = widget
         self.position = position
         self.text = text
-        self.toolTip = toolTip
+        self.toolTip = tool_tip
 
         # create object
         self.checkBox = QCheckBox(self.widget)

@@ -42,7 +42,7 @@ class Text:
             self.set_position(position)
 
         if style_identifier is not None:
-            self.label.setObjectName(style_identifier)
+            self.set_style_identifier(style_identifier)
 
     def set_text(self, text):
         self.label.setText(text)
@@ -50,6 +50,9 @@ class Text:
     def set_position(self, position: list) -> None:
         position = [position[0] - self.get_width() // 2, position[1]]
         self.label.move(position[0], position[1])
+
+    def set_style_identifier(self, style_identifier) -> None:
+        self.label.setObjectName(style_identifier)
 
     def get_width(self) -> int:
         return self.label.width()

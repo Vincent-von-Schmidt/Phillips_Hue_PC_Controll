@@ -33,6 +33,14 @@ QPushButton#off_button:hover {
     background-color: darkred;
 }
 
+QPushButton#on_button_activated {
+    background-color: darkred;
+}
+
+QPushButton#off_button_activated {
+    background-color: darkgreen;
+}
+
 QSlider::groove:horizontal {
     background-color: #424242;
     color: gray;
@@ -47,14 +55,6 @@ QSlider::handle:horizontal {
     width: 18px;
     margin: 0px;
     border-radius: 3px;
-}
-
-QSlider::add-page:horizontal {
-    color: black;
-}
-
-QSlider::sub-page:horizontal {
-    color: white;
 }
 
 QLineEdit {

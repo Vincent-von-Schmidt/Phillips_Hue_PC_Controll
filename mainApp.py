@@ -13,7 +13,7 @@ class MainWidget(QWidget):
         # --------------------------------------------------------------------
         # config
 
-        self.title = 'Phillips Hue PC Control v0.1.2'
+        self.title = 'Phillips Hue PC Control v0.2'
 
         # screen size
         self.width = 1280
@@ -34,7 +34,8 @@ class MainWidget(QWidget):
             text=self.hue_IP,
             on_change=lambda: self.hue_IP.replace(self.hue_IP, self.ip_input.get_user_input()),
             alignment="center",
-            length=300
+            length=300,
+            placeholder_text="bridge ip"
         )
 
         self.find_bridge_ip_button = widgetButton.Button(
@@ -47,9 +48,13 @@ class MainWidget(QWidget):
             widget=self,
             position=[self.CENTER[0] - 500, self.CENTER[1] + 300],
             text=self.hue_username,
-            on_change=lambda: self.hue_username.replace(self.hue_username, self.user_input.get_user_input()),
+            on_change=lambda: functions.combine_functions(
+                self.hue_username.replace(self.hue_username, self.user_input.get_user_input()),
+                print(self.hue_username)
+            ),
             alignment="center",
-            length=300
+            length=300,
+            placeholder_text="user name"
         )
 
         self.create_new_user_button = widgetButton.Button(
