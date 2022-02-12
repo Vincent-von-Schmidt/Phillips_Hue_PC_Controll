@@ -37,6 +37,12 @@ class MainWidget(QWidget):
             length=300
         )
 
+        self.find_bridge_ip_button = widgetButton.Button(
+            widget=self,
+            text="find bridge",
+            position=[self.CENTER[0] - 190, self.CENTER[1] + 250]
+        )
+
         self.user_input = widgetTextEdit.LineEdit(
             widget=self,
             position=[self.CENTER[0] - 500, self.CENTER[1] + 300],
@@ -44,6 +50,12 @@ class MainWidget(QWidget):
             on_change=lambda: self.hue_username.replace(self.hue_username, self.user_input.get_user_input()),
             alignment="center",
             length=300
+        )
+
+        self.create_new_user_button = widgetButton.Button(
+            widget=self,
+            text="create new",
+            position=[self.CENTER[0] - 190, self.CENTER[1] + 300]
         )
 
         self.panel_one = pyqt5_phillips_hue_widget.PhillipsHuePanel(

@@ -15,9 +15,10 @@ QFrame {
 }
 
 QPushButton {
-    border: 2px solid #8f8f91;
-    border-radius: 6px;
     background-color: #424242;
+    color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 QPushButton:hover {
@@ -33,11 +34,11 @@ QPushButton#off_button:hover {
 }
 
 QSlider::groove:horizontal {
-    border: 2px solid black;
-    border-radius: 6px;
-    height: 8px;
-    background: gray;
-    margin: 2px 0;
+    background-color: #424242;
+    color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 10px;
 }
 
 QSlider::handle:horizontal {
@@ -60,5 +61,5 @@ QLineEdit {
     background-color: #424242;
     color: gray;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
 }
