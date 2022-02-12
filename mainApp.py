@@ -28,6 +28,24 @@ class MainWidget(QWidget):
         # ui fixpoint
         self.CENTER = [self.width/2, self.height/2]
 
+        self.ip_input = widgetTextEdit.LineEdit(
+            widget=self,
+            position=[self.CENTER[0] - 500, self.CENTER[1] + 250],
+            text=self.hue_IP,
+            on_change=lambda: self.hue_IP.replace(self.hue_IP, self.ip_input.get_user_input()),
+            alignment="center",
+            length=300
+        )
+
+        self.user_input = widgetTextEdit.LineEdit(
+            widget=self,
+            position=[self.CENTER[0] - 500, self.CENTER[1] + 300],
+            text=self.hue_username,
+            on_change=lambda: self.hue_username.replace(self.hue_username, self.user_input.get_user_input()),
+            alignment="center",
+            length=300
+        )
+
         self.panel_one = pyqt5_phillips_hue_widget.PhillipsHuePanel(
             widget=self,
             position=self.CENTER,

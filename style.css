@@ -2,12 +2,6 @@ QWidget {
     background-color: #363636;
 }
 
-QPushButton {
-    border: 2px solid #8f8f91;
-    border-radius: 6px;
-    background-color: #424242;
-}
-
 QFrame#headline {
     font-size: 15;
     font-weight: bold;
@@ -18,6 +12,12 @@ QFrame {
     font-weight: bold;
     font-size: 13;
     color: gray;
+}
+
+QPushButton {
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+    background-color: #424242;
 }
 
 QPushButton:hover {
@@ -54,4 +54,11 @@ QSlider::add-page:horizontal {
 
 QSlider::sub-page:horizontal {
     color: white;
+}
+
+QLineEdit {
+    background-color: #424242;
+    color: gray;
+    border: 1px solid black;
+    border-radius: 3px;
 }

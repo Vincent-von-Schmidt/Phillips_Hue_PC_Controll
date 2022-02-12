@@ -10,7 +10,7 @@ class LineEdit:
             text_length: int = 0,
             length: int = 150,
             alignment: str = 'left',
-            on_change = None,
+            on_change=None,
             text: str = None,
             tool_tip: str = None
     ):
@@ -46,7 +46,7 @@ class LineEdit:
         self.lineEdit.setFixedWidth(self.length)
 
         # set max text length
-        if self.text_length != 0:
+        if not self.text_length == 0:
             self.lineEdit.setMaxLength(self.text_length)
 
         # define a tooltip
