@@ -27,6 +27,8 @@ class PhillipsHuePanel:
         else:
             self.name = self.light.get_name()
 
+        print(self.name)
+
         self.headline = widgetLabel.Text(
             widget=self.widget,
             text=self.name,

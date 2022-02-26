@@ -1,3 +1,6 @@
+
+stylesheet = """
+
 QWidget {
     background-color: #363636;
 }
@@ -64,3 +67,5 @@ QLineEdit {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+"""

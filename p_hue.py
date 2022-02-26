@@ -1,5 +1,15 @@
 import requests
 import json
+import subprocess
+
+
+def search_bridge() -> str:
+    ip_request = json.loads(
+        requests.get("https://discovery.meethue.com/").text
+    )
+
+    first_call = subprocess.call("dns-sd -B _hue._tcp local.")
+    print(str(first_call).find("Phillips Hue -"))
 
 
 def create_user(ip: str, name: str, app_name: str) -> list:
@@ -46,4 +56,4 @@ class PHueLight:
 
 
 if __name__ == "__main__":
-    print(create_user("192.168.178.37", "test_user", "p_hue_python_library"))
+    print(search_bridge())

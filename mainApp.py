@@ -78,7 +78,8 @@ class MainWidget(QWidget):
             position=[self.CENTER[0] - 250, self.CENTER[1]],
             light=1,
             hue_ip=self.hue_IP,
-            hue_user=self.hue_username
+            hue_user=self.hue_username,
+            name="wall lamp"
         )
         self.panel_two.set_current_state()
 

@@ -37,7 +37,7 @@ class Button:
         self.button.setToolTip(text)
 
     def set_position(self, position: list) -> None:
-        position = [position[0] - self.get_width() // 2, position[1]]
+        position = [position[0] - self.get_width() // 2, position[1] - self.get_height() // 2]
         self.button.move(position[0], position[1])
 
     def set_style_identifier(self, style_identifier) -> None:
@@ -53,4 +53,15 @@ class Button:
         self.button.clicked.connect(function)
 
 
+class ToggleButton(Button):
+    def __init__(self):
+        super.__init__()
+        self.value = False
 
+    def connect(self, function):
+        if not self.value:
+            self.set_style_identifier("active")
+            self.value = True
+        else:
+            self.set_style_identifier("")
+            self.value = False

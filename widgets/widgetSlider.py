@@ -65,7 +65,7 @@ class Slider:
         self.slider.valueChanged.connect(function)
 
     def set_position(self, position: list) -> None:
-        position = [position[0] - self.get_width() // 2, position[1]]
+        position = [position[0] - self.get_width() // 2, position[1] - self.get_height() // 2]
         self.slider.move(position[0], position[1])
 
     def set_slider_to_number(self, position):
