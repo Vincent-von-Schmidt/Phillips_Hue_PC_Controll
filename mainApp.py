@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QSize
-from PyQt5.QtWidgets import QWidget, QMainWindow
+from PyQt5.QtWidgets import QWidget, QStackedWidget
 from widgets import widgetButton, widgetLabel, widgetSlider, widgetTextEdit, widgetCheckBox
 import format
 import functions
@@ -13,7 +13,7 @@ class MainWidget(QWidget):
         # --------------------------------------------------------------------
         # config
 
-        self.title = 'Phillips Hue PC Control v0.2'
+        self.title = 'Phillips Hue PC Control v0.3'
 
         # screen size
         self.width = 1280
@@ -61,6 +61,12 @@ class MainWidget(QWidget):
             widget=self,
             text="create new",
             position=[self.CENTER[0] - 190, self.CENTER[1] + 300]
+        )
+
+        self.settings_button = widgetButton.Button(
+            widget=self,
+            position=[self.CENTER[0] - 580, self.CENTER[1] + 345],
+            text="settings"
         )
 
         self.panel_one = pyqt5_phillips_hue_widget.PhillipsHuePanel(

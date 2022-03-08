@@ -1,10 +1,11 @@
 from widgets import widgetButton, widgetLabel, widgetSlider
+from PyQt5.QtWidgets import QFormLayout, QWidget
 import functions
 import format
 import p_hue
 
 
-class PhillipsHuePanel:
+class PhillipsHuePanel(QWidget):
     def __init__(
             self,
             widget: object,
@@ -14,7 +15,9 @@ class PhillipsHuePanel:
             hue_user: str,
             name: str = None
     ):
+        super().__init__()
 
+        self.layout = QFormLayout()
         self.widget = widget
         self.hue_ip = hue_ip
         self.hue_user = hue_user
@@ -177,39 +180,15 @@ class PhillipsHuePanel:
         self.set_position(position)
 
     def set_position(self, position: list) -> None:
-        height = []
-        width = (self.bri_text.get_width() + self.bri_slider.get_width() + 74) // 2
-        gap_height = 15
+        self.layout.addRow(self.objects[0])
 
-        self.objects.pop(0)
-        # self.objects.pop(len(self.objects) - 1)
+        for odd_content, even_content in zip(
+                enumerate(self.objects[1::2]),
+                enumerate(self.objects[2::2])
+        ):
+            self.layout.addRow(odd_content, even_content)
 
-        var = 0
-        for index, content in enumerate(self.objects[:len(self.objects) // 2:]):
-            var += content.get_height()
-            var += gap_height
-            height.insert(index, var)
-
-        for index, content in enumerate(height[::-1]):
-            height.insert(index, -content)
-
-        for i in range(2):
-            height.pop(0)
-        height.pop(len(height) - 1)
-
-        height.insert(len(height) // 2, 0)
-
-        self.headline.set_position([position[0] + width // 12, position[1] + height[0]])
-        self.on_button.set_position([position[0] - width // 3, position[1] + height[len(height) - 1]])
-        self.off_button.set_position([position[0] + width // 3, position[1] + height[len(height) - 1]])
-
-        # set the position from the texts
-        for index, content in enumerate(self.objects[::2]):
-            content.set_position([position[0] - width // 3, position[1] + height[index] + 50])
-
-        # set the position from the sliders
-        for index, content in enumerate(self.objects[1::2]):
-            content.set_position([position[0] + width // 3, position[1] + height[index] + 50])
+        self.setLayout(self.layout)
 
     def set_current_state(self) -> None:
         request = self.light.get_state()
