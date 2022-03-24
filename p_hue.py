@@ -3,15 +3,15 @@ import json
 import subprocess
 
 
-def search_bridge() -> str:
-    instances = subprocess.run(["dns-sd", "-B", "_hue._tcp", "local."], capture_output=True).stdout.decode()
-    name = instances.split()
-
-    bridge_id = subprocess.run(["dns-sd", "-L", f"{name}", "_hue._tcp", "local."], capture_output=True).stdout.decode()
-
-    bridge_ip = subprocess.run(["dns-sd", "-G", f"{bridge_id}.local"], capture_output=True).stdout.decode()
-
-    return bridge_ip
+# def search_bridge() -> str:
+#     instances = subprocess.run(["dns-sd", "-B", "_hue._tcp", "local."], capture_output=True).stdout.decode()
+#     name = instances.split()
+#
+#     bridge_id = subprocess.run(["dns-sd", "-L", f"{name}", "_hue._tcp", "local."], capture_output=True).stdout.decode()
+#
+#     bridge_ip = subprocess.run(["dns-sd", "-G", f"{bridge_id}.local"], capture_output=True).stdout.decode()
+#
+#     return bridge_ip
 
 
 def create_user(ip: str, name: str, app_name: str) -> list:
