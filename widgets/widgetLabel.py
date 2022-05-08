@@ -48,7 +48,7 @@ class Text:
         self.label.setText(text)
 
     def set_position(self, position: list) -> None:
-        position = [position[0] - self.get_width() // 2, position[1] - self.get_height() // 2]
+        position = [int(position[0] - self.get_width() // 2), int(position[1] - self.get_height() // 2)]
         self.label.move(position[0], position[1])
 
     def set_style_identifier(self, style_identifier) -> None:
