@@ -65,7 +65,7 @@ class LineEdit:
             self.connect(on_change)
 
     def set_position(self, position: list) -> None:
-        position = [position[0] - self.get_width() // 2, position[1] - self.get_height() // 2]
+        position = [int(position[0] - self.get_width() // 2), int(position[1] - self.get_height() // 2)]
         self.lineEdit.move(position[0], position[1])
 
     def set_tool_tip(self, text: str) -> None:

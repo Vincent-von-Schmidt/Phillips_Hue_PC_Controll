@@ -37,7 +37,7 @@ class CheckBox:
         return self.checkBox.width()
 
     def set_position(self, position: list) -> None:
-        position = [position[0] - self.get_width() // 2, position[1]]
+        position = [int(position[0] - self.get_width() // 2), int(position[1])]
         self.checkBox.move(position[0], position[1])
 
     def set_state(self, state=False):
