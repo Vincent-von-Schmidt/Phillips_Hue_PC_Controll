@@ -13,7 +13,7 @@ class MainWidget(QWidget):
         # --------------------------------------------------------------------
         # config
 
-        self.title = 'Phillips Hue PC Control v0.3'
+        self.title = 'Phillips Hue PC Control v0.2.1'
 
         # screen size
         self.width = 1280
@@ -28,46 +28,46 @@ class MainWidget(QWidget):
         # ui fixpoint
         self.CENTER = [self.width/2, self.height/2]
 
-        self.ip_input = widgetTextEdit.LineEdit(
-            widget=self,
-            position=[self.CENTER[0] - 500, self.CENTER[1] + 250],
-            text=self.hue_IP,
-            on_change=lambda: self.hue_IP.replace(self.hue_IP, self.ip_input.get_user_input()),
-            alignment="center",
-            length=300,
-            placeholder_text="bridge ip"
-        )
-
-        self.find_bridge_ip_button = widgetButton.Button(
-            widget=self,
-            text="find bridge",
-            position=[self.CENTER[0] - 190, self.CENTER[1] + 250]
-        )
-
-        self.user_input = widgetTextEdit.LineEdit(
-            widget=self,
-            position=[self.CENTER[0] - 500, self.CENTER[1] + 300],
-            text=self.hue_username,
-            on_change=lambda: functions.combine_functions(
-                self.hue_username.replace(self.hue_username, self.user_input.get_user_input()),
-                print(self.hue_username)
-            ),
-            alignment="center",
-            length=300,
-            placeholder_text="user name"
-        )
-
-        self.create_new_user_button = widgetButton.Button(
-            widget=self,
-            text="create new",
-            position=[self.CENTER[0] - 190, self.CENTER[1] + 300]
-        )
-
-        self.settings_button = widgetButton.Button(
-            widget=self,
-            position=[self.CENTER[0] - 580, self.CENTER[1] + 345],
-            text="settings"
-        )
+        # self.ip_input = widgetTextEdit.LineEdit(
+        #     widget=self,
+        #     position=[self.CENTER[0] - 500, self.CENTER[1] + 250],
+        #     text=self.hue_IP,
+        #     on_change=lambda: self.hue_IP.replace(self.hue_IP, self.ip_input.get_user_input()),
+        #     alignment="center",
+        #     length=300,
+        #     placeholder_text="bridge ip"
+        # )
+        #
+        # self.find_bridge_ip_button = widgetButton.Button(
+        #     widget=self,
+        #     text="find bridge",
+        #     position=[self.CENTER[0] - 190, self.CENTER[1] + 250]
+        # )
+        #
+        # self.user_input = widgetTextEdit.LineEdit(
+        #     widget=self,
+        #     position=[self.CENTER[0] - 500, self.CENTER[1] + 300],
+        #     text=self.hue_username,
+        #     on_change=lambda: functions.combine_functions(
+        #         self.hue_username.replace(self.hue_username, self.user_input.get_user_input()),
+        #         print(self.hue_username)
+        #     ),
+        #     alignment="center",
+        #     length=300,
+        #     placeholder_text="user name"
+        # )
+        #
+        # self.create_new_user_button = widgetButton.Button(
+        #     widget=self,
+        #     text="create new",
+        #     position=[self.CENTER[0] - 190, self.CENTER[1] + 300]
+        # )
+        #
+        # self.settings_button = widgetButton.Button(
+        #     widget=self,
+        #     position=[self.CENTER[0] - 580, self.CENTER[1] + 345],
+        #     text="settings"
+        # )
 
         self.panel_one = pyqt5_phillips_hue_widget.PhillipsHuePanel(
             widget=self,
@@ -82,10 +82,10 @@ class MainWidget(QWidget):
         self.panel_two = pyqt5_phillips_hue_widget.PhillipsHuePanel(
             widget=self,
             position=[self.CENTER[0] - 250, self.CENTER[1]],
-            light=1,
+            light=15,
             hue_ip=self.hue_IP,
             hue_user=self.hue_username,
-            name="wall lamp"
+            name="bed"
         )
         self.panel_two.set_current_state()
 
