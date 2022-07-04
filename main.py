@@ -1,9 +1,17 @@
-from mainApp import MainWidget
-from PyQt5.QtWidgets import QApplication
-import sys
-import style
-import os
+import curses
 
-if __name__ == '__main__':
+def main(stdsrc) -> None:
+	MID = (curses.COLS - 1) // 2
+	curses.use_default_colors()
 
-    os.system('cls' if os.name=='nt' else 'clear') # clear Terminal
+	neowin = curses.newpad()
+
+	stdsrc.clear()
+
+	stdsrc.addstr(0, MID - 6, "Hello World!")
+
+	stdsrc.refresh()
+	stdsrc.getch()
+
+if __name__ == "__main__":
+	curses.wrapper(main)
