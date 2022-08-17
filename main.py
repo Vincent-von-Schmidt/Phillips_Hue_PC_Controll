@@ -1,14 +1,15 @@
 import curses
 
 def main(stdsrc) -> None:
-	MID = (curses.COLS - 1) // 2
+	MID_X = (curses.COLS - 1) // 2
+    MID_Y = (curses.LINE - 1) // 2
 	curses.use_default_colors()
 
-	neowin = curses.newpad()
+	# neowin = curses.newpad()
 
 	stdsrc.clear()
 
-	stdsrc.addstr(0, MID - 6, "Hello World!")
+	stdsrc.addstr(MID_Y, MID_X - 6, "Hello World!")
 
 	stdsrc.refresh()
 	stdsrc.getch()
